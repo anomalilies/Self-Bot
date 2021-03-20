@@ -16,16 +16,18 @@ client.once("ready", () => {
       await channel.send(`-fs ${map[i]}`);
 
       channel.awaitMessages(filter, { max: 1 }).then((m: any) => {
-        var desc = m.embeds[0].description.replace(
-          /([^\d\n]+)|([^\n].*$)/g,
-          ""
-        );
-        var fields = m.embeds[0].fields[0].value
-          .match(/(?<=\w*:\s\*\*)(.*?)(?=\*)/g)
-          .join("\n");
-
-        var info = `${desc.toString()}${fields.toString()}`;
-        console.log(map[i], info);
+        m.forEach((message: any) => {
+          var desc = message.embeds[0].description.replace(
+            /([^\d\n]+)|([^\n].*$)/g,
+            ""
+          );
+          var fields = message.embeds[0].fields[0].value
+            .match(/(?<=\w*:\s\*\*)(.*?)(?=\*)/g)
+            .join("\n");
+  
+          var info = `${desc.toString()}${fields.toString()}`;
+          console.log(`${map[i]}\n${info}`);
+        })
       });
 
       await timeout(8000);
