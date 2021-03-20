@@ -1,24 +1,21 @@
 {
   "name": "selfbot",
   "version": "1.0.0",
-  "description": "",
   "main": "index.ts",
   "scripts": {
     "start": "npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --config nodemon.json index.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "anomalilies",
   "dependencies": {
     "discord.js-self": "^12.0.4",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.34",
     "nodemon": "^2.0.7",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
-  },
-  "devDependencies": {
-    "@types/node": "^14.14.34"
   }
 }
